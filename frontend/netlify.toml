@@ -1,0 +1,22 @@
+# Configuración de despliegue para Netlify (plan gratuito).
+# Netlify detecta este archivo automáticamente al conectar el repositorio.
+
+[build]
+  # Directorio base del frontend dentro del monorepo
+  base    = "frontend"
+  # Comando de construcción
+  command = "npm run build"
+  # Carpeta que Netlify publicará (salida de Vite)
+  publish = "dist"
+
+# Redirect necesario para SPAs con React Router.
+# Sin este redirect, cualquier ruta distinta de "/" daría un 404 al recargar.
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# Variables de entorno de build (también se pueden configurar en el dashboard)
+# IMPORTANTE: reemplaza la URL por la de tu backend desplegado en Render/Railway
+[build.environment]
+  VITE_API_URL = "https://tu-backend.onrender.com"

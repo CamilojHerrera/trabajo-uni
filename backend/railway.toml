@@ -1,0 +1,12 @@
+# Archivo de configuración para Railway.app (alternativa gratuita a Render).
+# Railway detecta este archivo automáticamente al conectar el repositorio.
+
+[build]
+builder = "NIXPACKS"          # Railway elige automáticamente Node.js
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/health"
+healthcheckTimeout = 300      # segundos que espera antes de marcar como fallido
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

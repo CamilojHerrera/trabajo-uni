@@ -1,0 +1,18 @@
+# Archivo de configuración para desplegar en Render.com (plan gratuito).
+# Sube este repositorio a GitHub y conecta el repo en render.com → "New Web Service".
+
+services:
+  - type: web
+    name: nodejs-postgresql-api
+    env: node
+    region: oregon          # Elige la región más cercana a tus usuarios
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        # En Render, crea una base de datos PostgreSQL y copia la "Internal Database URL"
+        sync: false         # El valor se configura manualmente en el dashboard
