@@ -5,7 +5,7 @@
   # Directorio base del frontend dentro del monorepo
   base    = "frontend"
   # Comando de construcción
-  command = "npm run build"
+  command = "npm install && npm run build"
   # Carpeta que Netlify publicará (salida de Vite)
   publish = "dist"
 
