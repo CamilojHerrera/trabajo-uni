@@ -130,19 +130,3 @@ npm run dev
 
 ---
 
-## Despliegue en producción
-
-### Backend → Render.com
-
-1. Sube el proyecto a GitHub
-2. [render.com](https://render.com) → **New Web Service** → conecta el repo → carpeta `backend`
-3. Build: `npm install` | Start: `npm start`
-4. Agrega en **Environment Variables** las mismas keys de `.env.template` con valores de producción
-5. Usa [Neon.tech](https://neon.tech) para PostgreSQL gratuito (copia las credenciales como variables individuales)
-
-### Frontend → Netlify
-
-1. [netlify.com](https://netlify.com) → **Import from Git** → carpeta `frontend`
-2. Build: `npm run build` | Publish: `dist`
-3. Agrega variable de entorno: `VITE_API_URL = https://tu-backend.onrender.com`
-4. El `netlify.toml` ya configura el redirect `/* → /index.html` para el SPA
